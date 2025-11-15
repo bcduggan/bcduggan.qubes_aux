@@ -61,4 +61,3 @@ class PolicyUtil:
   @client_tool
   def list(self) -> list[str]:
     return self._client_method("list")
-

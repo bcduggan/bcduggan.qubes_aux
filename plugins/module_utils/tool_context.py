@@ -4,7 +4,7 @@ from subprocess import CalledProcessError
 
 class ToolContextError(Exception):
   """Generic qrexec/qubesadmin tool error"""
-  def __nit__(self, message):
+  def __init__(self, message):
     super().__init__(message)
 
 class ToolContext():
