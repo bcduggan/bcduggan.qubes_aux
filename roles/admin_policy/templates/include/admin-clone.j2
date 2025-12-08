@@ -9,7 +9,7 @@
 ## This file is controlled by the bcduggan.qubes.admin_policy role
 
 # Allow non-dom0 AdminVM to clone any template
-{{ adminvm }} @anyvm allow target=dom0
+{{ adminvm }} @type:TemplateVM allow target=dom0
 
 {% for mgmtvm in mgmtvms %}
 {% if loop.first %}

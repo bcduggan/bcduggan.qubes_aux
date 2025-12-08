@@ -8,8 +8,8 @@
 
 ## Add your entries here, make sure to append "target=dom0" to all allow/ask actions
 
-# Allow AdminVM to modify self configuration
-{{ adminvm }} @anyvm allow target=dom0
+{# # Allow AdminVM to modify self configuration #}
+{# {{ adminvm }} @anyvm allow target=dom0 #}
 
 {% for mgmtvm in mgmtvms %}
 {% if loop.first %}

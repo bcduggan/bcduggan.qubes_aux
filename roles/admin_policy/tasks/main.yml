@@ -2,7 +2,7 @@
 - name: Apply policies
   vars:
     adminvm: "{{ admin_policy_adminvm }}"
-    mgmtvms: "{{ admin_policy_mgmtvms }}"
+    mgmtvms: "{{ admin_policy_mgmtvms + [adminvm] }}"
     updatevm: "{{ lookup('bcduggan.qubes.qubes_prefs', 'updatevm') }}"
   block:
     # This task is usually reflexive.
@@ -27,11 +27,6 @@
       bcduggan.qubes.rpc_policy:
         name: include/admin-local-ro
         content: "{{ lookup('ansible.builtin.template', 'templates/include/admin-local-ro.j2') }}"
-
-    - name: Install include/admin-global-rwx
-      bcduggan.qubes.rpc_policy:
-        name: include/admin-global-rwx
-        content: "{{ lookup('ansible.builtin.template', 'templates/include/admin-global-rwx.j2') }}"
 
     - name: Install include/admin-global-ro
       bcduggan.qubes.rpc_policy:

@@ -14,11 +14,7 @@
 ## Include all that can clone
 !include include/admin-clone
 
-{{ adminvm }} @adminvm allow target=dom0
 {% for mgmtvm in mgmtvms %}
-{% if loop.first %}
-
-# Allow MgmtVMs to read self configuration
-{% endif %}
+{{ mgmtvm }} @adminvm allow target=dom0
 {{ mgmtvm }} {{ mgmtvm }} allow target=dom0
 {% endfor %}

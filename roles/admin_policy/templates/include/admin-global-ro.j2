@@ -13,10 +13,8 @@
 
 ## Include all already having clone access
 !include include/admin-clone
-{% for mgmtvm in mgmtvms %}
-{% if loop.first %}
 
-{% endif %}
+{% for mgmtvm in mgmtvms %}
 {{ mgmtvm }} @adminvm             allow target=dom0
 {{ mgmtvm }} @tag:created-by-{{ mgmtvm }} allow target=dom0
 {{ mgmtvm }} {{ mgmtvm }}                 allow target=dom0
