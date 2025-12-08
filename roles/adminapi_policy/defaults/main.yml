@@ -1,0 +1,4 @@
+---
+adminapi_policy_adminvm: "{{ lookup('bcduggan.qubes.qubesdb', '/name') }}"
+adminapi_policy_mgmtvms:
+  - mgmtvm

@@ -1,8 +1,8 @@
 ---
 - name: Apply policies
   vars:
-    adminvm: "{{ admin_policy_adminvm }}"
-    mgmtvms: "{{ admin_policy_mgmtvms + [adminvm] }}"
+    adminvm: "{{ adminapi_policy_adminvm }}"
+    mgmtvms: "{{ adminapi_policy_mgmtvms + [adminvm] }}"
     updatevm: "{{ lookup('bcduggan.qubes.qubes_prefs', 'updatevm') }}"
   block:
     # This task is usually reflexive.
@@ -44,6 +44,8 @@
         content: "{{ lookup('ansible.builtin.template', 'templates/30-admin-template.policy.j2') }}"
 
     - name: Install 30-admin-mgmt.policy
+      vars:
+        vmrootshell_args: "{{ adminapi_policy_vmrootshell_release_args_map[adminapi_policy_qubes_release] }}"
       bcduggan.qubes.rpc_policy:
         name: 30-admin-mgmt.policy
         content: "{{ lookup('ansible.builtin.template', 'templates/30-admin-mgmt.policy.j2') }}"
