@@ -172,3 +172,7 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Ansible site ignores
+ansible_collections
+galaxy_cache

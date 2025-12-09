@@ -1,0 +1,13 @@
+---
+- name: Configure Qubes RPC policy
+  hosts: local
+  # tasks:
+  #   - name: Create sys template VM
+  #     qubesos:
+  #       guest: debian-13-minimal-sys
+  #       template: debian-13-minimal
+  #       vmtype: TemplateVM
+  #       state: present
+  roles:
+    - role: bcduggan.qubes.adminapi_policy
+    # - role: bcduggan.qubes.templatevms
