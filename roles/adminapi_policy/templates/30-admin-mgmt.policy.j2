@@ -6,8 +6,6 @@ admin.vm.Remove              * {{ mgmtvm }} @tag:created-by-{{ mgmtvm }}  allow 
 qubes.Filecopy               * {{ mgmtvm }} @tag:created-by-{{ mgmtvm }}  allow
 qubes.WaitForSession         * {{ mgmtvm }} @tag:created-by-{{ mgmtvm }}  allow
 qubes.VMShell                * {{ mgmtvm }} @tag:created-by-{{ mgmtvm }}  allow
-qubes.VMRootShell            * {{ mgmtvm }} @tag:created-by-{{ mgmtvm }}  allow {{ vmrootshell_args|items|map('join', '=')|join(',') }}
-{% if not loop.last %}
-
+qubes.VMRootShell            * {{ mgmtvm }} @tag:created-by-{{ mgmtvm }}  allow
 {% endif %}
 {% endfor %}
