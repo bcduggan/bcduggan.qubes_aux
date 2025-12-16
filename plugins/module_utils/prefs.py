@@ -2,19 +2,9 @@ from functools import wraps
 from ansible.errors import AnsibleError
 import qubesadmin
 from qubesadmin.app import QubesBase
-from qubesadmin.exc import QubesPropertyAccessError, QubesNoSuchPropertyError, QubesPropertyValueError
 
 type PrefValue = None | bool | str | int | float
 type PrefList = list[str]
-
-def pref_accessor(func):
-    @wraps(func)
-    def wrapper(*args, **kwargs):
-        try:
-            return func(*args, **kwargs)
-        except (QubesPropertyAccessError, QubesNoSuchPropertyError, QubesPropertyValueError) as exc:
-            raise AnsibleError from exc
-    return wrapper
 
 class QubesPrefs:
     def __init__(self):
@@ -25,7 +15,6 @@ class QubesPrefs:
     def _target(self) -> QubesBase:
         return self.app
     
-    @pref_accessor
     def get(self, pref: str) -> PrefValue:
         return getattr(self.target, pref)
 
@@ -42,18 +31,15 @@ class QubesPrefs:
 
         return default
 
-    @pref_accessor
     def is_default(self, pref: str) -> bool:
         return self.target.property_is_default(pref)
 
     def list(self) -> PrefList:
         return self.target.property_list()
 
-    @pref_accessor
     def set(self, pref: str, value: PrefValue) -> None:
         setattr(self.target, pref, value)
 
-    @pref_accessor
     def delete(self, pref: str) -> None:
         delattr(self.target, pref)
 
