@@ -3,7 +3,6 @@
   vars:
     adminvm: "{{ adminapi_policy_adminvm }}"
     mgmtvms: "{{ adminapi_policy_mgmtvms + [adminvm] }}"
-    updatevm: "{{ lookup('bcduggan.qubes.qubes_prefs', 'updatevm') }}"
   block:
     # This task is usually reflexive.
     # The VM that runs this task must already be present in include/admin-policy-rwx
@@ -37,11 +36,6 @@
       bcduggan.qubes.rpc_policy:
         name: 30-admin-clone.policy
         content: "{{ lookup('ansible.builtin.template', 'templates/30-admin-clone.policy.j2') }}"
-
-    - name: Install 30-admin-template.policy
-      bcduggan.qubes.rpc_policy:
-        name: 30-admin-template.policy
-        content: "{{ lookup('ansible.builtin.template', 'templates/30-admin-template.policy.j2') }}"
 
     - name: Install 30-admin-mgmt.policy
       vars:
