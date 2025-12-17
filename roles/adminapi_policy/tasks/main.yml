@@ -1,8 +1,8 @@
 ---
 - name: Apply policies
   vars:
-    adminvm: "{{ adminapi_policy_adminvm }}"
-    mgmtvms: "{{ adminapi_policy_mgmtvms + [adminvm] }}"
+    adminvm: "{{ '@dispvm:' ~ adminapi_policy_adminvm }}"
+    mgmtvms: "{{ adminapi_policy_mgmtvms + [adminvm] | map('regex_replace', '^', '@dispvm:') }}"
   block:
     # This task is usually reflexive.
     # The VM that runs this task must already be present in include/admin-policy-rwx
