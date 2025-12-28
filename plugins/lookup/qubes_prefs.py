@@ -37,19 +37,19 @@ author:
 EXAMPLES = '''
 - name: Get current updatevm
   ansible.builtin.debug:
-    msg: "{{ lookup('bcduggan.qubes.qubes_prefs', 'updatevm') }}"
+    msg: "{{ lookup('bcduggan.qubes_aux.qubes_prefs', 'updatevm') }}"
 
 - name: Get default updatevm
   ansible.builtin.debug:
-    msg: "{{ lookup('bcduggan.qubes.qubes_prefs', 'updatevm', default=True) }}"
+    msg: "{{ lookup('bcduggan.qubes_aux.qubes_prefs', 'updatevm', default=True) }}"
 
 - name: List Qubes pref names
   ansible.builtin.debug:
-    msg: "{{ lookup('bcduggan.qubes.qubes_prefs', list=True) }}"
+    msg: "{{ lookup('bcduggan.qubes_aux.qubes_prefs', list=True) }}"
 '''
 from ansible.plugins.lookup import LookupBase
 from ansible.utils.display import Display
-from ansible_collections.bcduggan.qubes.plugins.module_utils.prefs import QubesPrefs
+from ansible_collections.bcduggan.qubes_aux.plugins.module_utils.prefs import QubesPrefs
 
 type PrefValue = None | bool | str | int | float
 type LookupResult = list[str] | list[PrefValue]

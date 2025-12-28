@@ -40,18 +40,18 @@ author:
 EXAMPLES = '''
 - name: Get current netvm for work qube
   ansible.builtin.debug:
-    msg: "{{ lookup('bcduggan.qubes.qvm_prefs', 'netvm', qube='work') }}""
+    msg: "{{ lookup('bcduggan.qubes_aux.qvm_prefs', 'netvm', qube='work') }}""
 
 - name: Get default netvm for work qube
   ansible.builtin.debug:
-    msg: "{{ lookup('bcduggan.qubes.qvm_prefs', 'netvm', qube='work', default=True) }}""
+    msg: "{{ lookup('bcduggan.qubes_aux.qvm_prefs', 'netvm', qube='work', default=True) }}""
 
 - name: List qvm prefs for work qube
   ansible.builtin.debug:
-    msg: "{{ lookup('bcduggan.qubes.qvm_prefs', 'netvm', qube='work', default=True) }}""
+    msg: "{{ lookup('bcduggan.qubes_aux.qvm_prefs', 'netvm', qube='work', default=True) }}""
 '''
-from ansible_collections.bcduggan.qubes.plugins.module_utils.prefs import QvmPrefs
-from ansible_collections.bcduggan.qubes.plugins.lookup.qubes_prefs import LookupModule as QubesPrefsLookupModule
+from ansible_collections.bcduggan.qubes_aux.plugins.module_utils.prefs import QvmPrefs
+from ansible_collections.bcduggan.qubes_aux.plugins.lookup.qubes_prefs import LookupModule as QubesPrefsLookupModule
 
 class LookupModule(QubesPrefsLookupModule):
   def _prefs(self) -> QvmPrefs:

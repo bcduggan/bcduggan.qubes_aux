@@ -1,6 +1,6 @@
 ---
 namespace: bcduggan
-name: qubes
+name: qubes_aux
 version: 0.1.0
 description: Helper modules and roles for qubes-ansible
 readme: README.md
@@ -9,4 +9,4 @@ authors:
 license_file: LICENSE
 tags:
   - qubes
-repository: "https://github.com/bcduggan/bcduggan.qubes"
+repository: "https://github.com/bcduggan/bcduggan.qubes_aux"

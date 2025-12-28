@@ -9,5 +9,5 @@
   #       vmtype: TemplateVM
   #       state: present
   roles:
-    - role: bcduggan.qubes.adminapi_policy
-    # - role: bcduggan.qubes.templatevms
+    - role: bcduggan.qubes_aux.adminapi_policy
+    # - role: bcduggan.qubes_aux.templatevms

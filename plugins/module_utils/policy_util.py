@@ -4,7 +4,7 @@ from pathlib import PurePosixPath
 from qrexec.policy.admin_client import PolicyClient
 import qrexec.tools.qubes_policy_lint as linter
 import qrexec.tools.qubes_policy_editor as editor
-from ansible_collections.bcduggan.qubes.plugins.module_utils.tool_context import ToolContext, ToolContextError
+from ansible_collections.bcduggan.qubes_aux.plugins.module_utils.tool_context import ToolContext, ToolContextError
 
 class PolicyUtilError(Exception):
   pass

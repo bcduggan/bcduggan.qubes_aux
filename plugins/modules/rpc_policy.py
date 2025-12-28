@@ -94,7 +94,7 @@ import os
 import functools
 from collections.abc import Callable
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.bcduggan.qubes.plugins.module_utils.policy_util import PolicyUtil, PolicyUtilError
+from ansible_collections.bcduggan.qubes_aux.plugins.module_utils.policy_util import PolicyUtil, PolicyUtilError
 
 type DiffResultValue = dict[str, str]
 type DiffResultValues = list[DiffResult]

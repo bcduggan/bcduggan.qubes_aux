@@ -31,11 +31,11 @@ author:
 EXAMPLES = '''
 - name: Get local qube name
   ansible.builtin.debug:
-    msg: "{{ lookup('bcduggan.qubes.qubesdb', '/name') }}""
+    msg: "{{ lookup('bcduggan.qubes_aux.qubesdb', '/name') }}""
 
 - name: List qubes services
   ansible.builtin.debug:
-    msg: "{{ lookup('bcduggan.qubes.qubesdb', '/qubes-service', list=True) }}""
+    msg: "{{ lookup('bcduggan.qubes_aux.qubesdb', '/qubes-service', list=True) }}""
 '''
 from ansible.errors import AnsibleError
 from ansible.plugins.lookup import LookupBase

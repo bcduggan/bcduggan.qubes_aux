@@ -6,22 +6,22 @@ The qubes_policy plugin modifies qrexec policies. For example:
 
 ```yaml
 - name: Write policy
-  bcduggan.qubes.qubes_policy:
+  bcduggan.qubes_aux.qubes_policy:
     name: 30-mgmtvm
     path: 30-mgmtvm
 
 - name: Write include policy
-  bcduggan.qubes.qubes_policy:
+  bcduggan.qubes_aux.qubes_policy:
     name: include/admin-global-ro
     path: include/admin-global-ro
 
 - name: Write templated policy
-  bcduggan.qubes.qubes_policy:
+  bcduggan.qubes_aux.qubes_policy:
     name: 30-split-ssh
     content: "{{ lookup('ansible.builtin.template', './templates/policy/30-split-ssh.j2') }}"
 
 - name: Remove policy
-  bcduggan.qubes.qubes_policy:
+  bcduggan.qubes_aux.qubes_policy:
     name: 35-redundant
     state: absent
 ```

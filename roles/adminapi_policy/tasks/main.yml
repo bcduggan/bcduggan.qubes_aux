@@ -8,38 +8,38 @@
     # The VM that runs this task must already be present in include/admin-policy-rwx
     # It is useful to ensure that admin-policy-rwx is exclusively granted to the executing VM.
     - name: Allow AdminVMs to read and write RPC policies
-      bcduggan.qubes.rpc_policy:
+      bcduggan.qubes_aux.rpc_policy:
         name: include/admin-policy-rwx
         content: "{{ lookup('ansible.builtin.template', 'templates/include/admin-policy-rwx.j2') }}"
 
     - name: Install include/admin-clone
-      bcduggan.qubes.rpc_policy:
+      bcduggan.qubes_aux.rpc_policy:
         name: include/admin-clone
         content: "{{ lookup('ansible.builtin.template', 'templates/include/admin-clone.j2') }}"
 
     - name: Install include/admin-local-rwx
-      bcduggan.qubes.rpc_policy:
+      bcduggan.qubes_aux.rpc_policy:
         name: include/admin-local-rwx
         content: "{{ lookup('ansible.builtin.template', 'templates/include/admin-local-rwx.j2') }}"
 
     - name: Install include/admin-local-ro
-      bcduggan.qubes.rpc_policy:
+      bcduggan.qubes_aux.rpc_policy:
         name: include/admin-local-ro
         content: "{{ lookup('ansible.builtin.template', 'templates/include/admin-local-ro.j2') }}"
 
     - name: Install include/admin-global-ro
-      bcduggan.qubes.rpc_policy:
+      bcduggan.qubes_aux.rpc_policy:
         name: include/admin-global-ro
         content: "{{ lookup('ansible.builtin.template', 'templates/include/admin-global-ro.j2') }}"
 
     - name: Install 30-admin-clone.policy
-      bcduggan.qubes.rpc_policy:
+      bcduggan.qubes_aux.rpc_policy:
         name: 30-admin-clone.policy
         content: "{{ lookup('ansible.builtin.template', 'templates/30-admin-clone.policy.j2') }}"
 
     - name: Install 30-admin-mgmt.policy
       vars:
         vmrootshell_args: "{{ adminapi_policy_vmrootshell_release_args_map[adminapi_policy_qubes_release] }}"
-      bcduggan.qubes.rpc_policy:
+      bcduggan.qubes_aux.rpc_policy:
         name: 30-admin-mgmt.policy
         content: "{{ lookup('ansible.builtin.template', 'templates/30-admin-mgmt.policy.j2') }}"

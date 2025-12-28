@@ -1,3 +1,3 @@
 ---
-adminapi_policy_adminvm: "{{ lookup('bcduggan.qubes.qubesdb', '/name') }}"
+adminapi_policy_adminvm: "{{ lookup('bcduggan.qubes_aux.qubesdb', '/name') }}"
 adminapi_policy_mgmtvms: []
